@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unComfort | Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">unComfort</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pages/shop.html">Shop</a></li>
+                <li><a href="pages/lookbook.html">Lookbook</a></li>
+                <li><a href="pages/login.html">Login</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="currency-menu">
+                    <button class="currency-toggle">USD</button>
+                    <div class="currency-dropdown">
+                        <a href="#" data-currency="USD">USD</a>
+                        <a href="#" data-currency="EUR">EUR</a>
+                        <a href="#" data-currency="GBP">GBP</a>
+                    </div>
+                </div>
+                <button class="cart-toggle">Cart (<span class="cart-count">0</span>)</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>unComfort</h1>
+                <p>Breaking boundaries in fashion</p>
+                <a href="pages/shop.html" class="btn">Shop Now</a>
+            </div>
+        </section>
+
+        <section class="featured">
+            <h2>Featured Collection</h2>
+            <div class="featured-grid">
+                <!-- Featured products will be added dynamically with JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>unComfort</h2>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="pages/shop.html">All Products</a></li>
+                        <li><a href="pages/shop.html?category=new">New Arrivals</a></li>
+                        <li><a href="pages/shop.html?category=bestsellers">Bestsellers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Info</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 unComfort. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar Component -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be added dynamically with JavaScript -->
+        </div>
+        <div class="cart-total">
+            <p>Subtotal: <span class="subtotal">$0.00</span></p>
+            <a href="#" class="btn checkout-btn">Checkout</a>
+        </div>
+    </div>
+    <div class="overlay"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/components.js"></script>
+</body>
+</html> 
