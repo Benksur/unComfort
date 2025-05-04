@@ -1,1 +1,16 @@
- 
+/* Currency and Cart Buttons */
+.currency-toggle, .cart-toggle {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Ensure all navbar elements inherit color properly */
+.transparent-nav a,
+.transparent-nav button,
+.transparent-nav .logo,
+.transparent-nav .nav-links {
+    color: inherit;
+}

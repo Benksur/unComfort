@@ -8,47 +8,68 @@
     <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="index.html">unComfort</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="pages/shop.html">Shop</a></li>
-                <li><a href="pages/lookbook.html">Lookbook</a></li>
-                <li><a href="pages/login.html">Login</a></li>
-            </ul>
-            <div class="nav-actions">
-                <div class="currency-menu">
-                    <button class="currency-toggle">USD</button>
-                    <div class="currency-dropdown">
-                        <a href="#" data-currency="USD">USD</a>
-                        <a href="#" data-currency="EUR">EUR</a>
-                        <a href="#" data-currency="GBP">GBP</a>
-                    </div>
-                </div>
-                <button class="cart-toggle">Cart (<span class="cart-count">0</span>)</button>
-            </div>
-        </nav>
-    </header>
+    <!-- Full screen video background with overlay -->
+    <div class="video-container">
+        <img src="img/yesh.jpg" alt="Background Image">
+        <div class="overlay"></div>
+    </div>
+
+    <!-- https://www.youtube.com/watch?v=iLmBy-HKIAw -->
+    <div class="scroller">
+        <ul class="scroller-list">
+            <li>FOLLOW @UNCOMFORT_ ON INSTAGRAM</li>
+            <li>UNCOMFORT 50% LAUNCH PROMO APPLIED AT CHECKOUT</li>
+            <li>SIGN UP FOR NEWSLETTER TO BE NOTIFIED ON THE NEXT DROP</li>
+            <li>FOLLOW @UNCOMFORT_ ON INSTAGRAM</li>
+            <li>UNCOMFORT 50% LAUNCH PROMO APPLIED AT CHECKOUT</li>
+            <li>SIGN UP FOR NEWSLETTER TO BE NOTIFIED ON THE NEXT DROP</li>
+        </ul>
+    </div>
+
+      
+      
+
+    <!-- Navbar component will be inserted here -->
+    <div id="navbar-container"></div>
 
     <main>
-        <section class="hero">
+        <!-- Hero Section with Video Background -->
+        <section id="home" class="hero fullscreen">
             <div class="hero-content">
-                <h1>unComfort</h1>
-                <p>Breaking boundaries in fashion</p>
-                <a href="pages/shop.html" class="btn">Shop Now</a>
+
             </div>
         </section>
 
-        <section class="featured">
-            <h2>Featured Collection</h2>
-            <div class="featured-grid">
-                <!-- Featured products will be added dynamically with JavaScript -->
+        <!-- Featured Collection Section -->
+        <section id="featured" class="featured-section">
+            <div class="container">
+                <h2>Featured Collection</h2>
+                <div class="featured-grid">
+                    <!-- Featured products will be added dynamically with JavaScript -->
+                </div>
+                <div class="view-more">
+                    <a href="pages/shop.html" class="btn outline-btn">View All Products</a>
+                </div>
             </div>
         </section>
-    </main>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="terminal-header" style="text-align: center;">team@uncomfort:~</div>
+                        <div class="terminal-command">team@uncomfort:~$ mission_statement</div>
+                        <p>We are dedicated to ethically sourcing and producing fabrics in Australia, valuing sustainability and local craftsmanship.
+
+Our goal is to support communities and preserve cultural heritage while creating eco-conscious textiles.
+
+Built in Australia. Worn everywhere.</p>
+                        <div class="terminal-command">team@uncomfort:~$ </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     <footer>
         <div class="footer-content">
@@ -67,7 +88,8 @@
                 <div class="footer-column">
                     <h3>Info</h3>
                     <ul>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#philosophy">Our Philosophy</a></li>
                         <li><a href="#">Contact</a></li>
                         <li><a href="#">Shipping & Returns</a></li>
                     </ul>
@@ -101,9 +123,9 @@
             <a href="#" class="btn checkout-btn">Checkout</a>
         </div>
     </div>
-    <div class="overlay"></div>
+    <div class="cart-overlay"></div>
 
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
     <script src="js/components.js"></script>
 </body>
 </html> 
