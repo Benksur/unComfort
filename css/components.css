@@ -14,3 +14,87 @@
 .transparent-nav .nav-links {
     color: inherit;
 }
+
+/* Featured Card Component */
+.featured-card {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    max-width: 100%;
+    margin-bottom: 30px;
+}
+
+.featured-card:hover {
+    transform: translateY(-5px);
+}
+
+.featured-card-image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.featured-card-image img {
+    width: 100%;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.featured-card-details {
+    padding: 10px 0;
+}
+
+.product-title {
+    font-family: 'Courier Prime', monospace;
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.color-options {
+    display: flex;
+    gap: 8px;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    transition: transform 0.2s ease;
+}
+
+.color-box:hover {
+    transform: scale(1.1);
+}
+
+.color-box.black {
+    background-color: #000;
+}
+
+.color-box.olive {
+    background-color: #5F6e42;
+}
+
+.color-box.grey {
+    background-color: #ccc;
+}
+
+.color-box.brown {
+    background-color: #8B4513;
+}
+
+.color-box.active {
+    border: 2px solid #000;
+}

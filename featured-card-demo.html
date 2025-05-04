@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Card Demo | unComfort</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <style>
+        body {
+            padding: 40px;
+            background-color: #f8f8f8;
+        }
+        .demo-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h2 class="title">Featured Product Card</h2>
+        
+        <!-- Featured Card Component -->
+        <div class="featured-card">
+            <div class="featured-card-image">
+                <img id="product-image" src="img/yesh.jpg" alt="Product Image">
+            </div>
+            <div class="featured-card-details">
+                <h3 class="product-title">8002 HEAVYWEIGHT TEE</h3>
+                <p class="product-price">$70</p>
+                <div class="color-options">
+                    <div class="color-box black" data-color="black"></div>
+                    <div class="color-box olive" data-color="olive"></div>
+                    <div class="color-box grey" data-color="grey"></div>
+                    <div class="color-box brown" data-color="brown"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/featured-card.js"></script>
+</body>
+</html> 

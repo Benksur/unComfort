@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
         setupNavbarScrollColor();
         console.log('Navbar scroll color change setup completed');
     });
+    
+    // Load featured card component
+    loadComponent('featured-card-container', 'components/featured-card.html', function() {
+        console.log('Featured card component loaded');
+    });
 });
 
 const scrollers = document.querySelectorAll('.scroller');
