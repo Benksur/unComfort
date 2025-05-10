@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
 </head>
+
 <body>
     <!-- Full screen video background with overlay -->
     <div class="video-container">
@@ -26,9 +28,6 @@
         </ul>
     </div>
 
-      
-      
-
     <!-- Navbar component will be inserted here -->
     <div id="navbar-container"></div>
 
@@ -44,10 +43,7 @@
         <section id="featured" class="featured-section">
             <div class="container">
                 <h2>featured collection</h2>
-                <div class="featured-grid">
-                    <!-- Featured card will be inserted here -->
-                    <div id="featured-card-container"></div>
-                </div>
+                <div class="featured-grid" id="featured-card-container"></div>
                 <div class="view-more">
                     <a href="pages/shop.html" class="btn outline-btn">View All Products</a>
                 </div>
@@ -61,73 +57,76 @@
                     <div class="about-text">
                         <div class="terminal-header" style="text-align: center;">team@uncomfort:~</div>
                         <div class="terminal-command">team@uncomfort:~$ mission_statement</div>
-                        <p>We are dedicated to ethically sourcing and producing fabrics in Australia, valuing sustainability and local craftsmanship.
+                        <p>We are dedicated to ethically sourcing and producing fabrics in Australia, valuing
+                            sustainability and local craftsmanship.
 
-Our goal is to support communities and preserve cultural heritage while creating eco-conscious textiles.
+                            Our goal is to support communities and preserve cultural heritage while creating
+                            eco-conscious textiles.
 
-Built in Australia. Worn everywhere.</p>
+                            Built in Australia. Worn everywhere.</p>
                         <div class="terminal-command">team@uncomfort:~$ </div>
                     </div>
                 </div>
             </div>
         </section>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <h2>unComfort</h2>
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>unComfort</h2>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Shop</h3>
+                        <ul>
+                            <li><a href="pages/shop.html">All Products</a></li>
+                            <li><a href="pages/shop.html?category=new">New Arrivals</a></li>
+                            <li><a href="pages/shop.html?category=bestsellers">Bestsellers</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Info</h3>
+                        <ul>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#philosophy">Our Philosophy</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Shipping & Returns</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Connect</h3>
+                        <ul>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Facebook</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="footer-links">
-                <div class="footer-column">
-                    <h3>Shop</h3>
-                    <ul>
-                        <li><a href="pages/shop.html">All Products</a></li>
-                        <li><a href="pages/shop.html?category=new">New Arrivals</a></li>
-                        <li><a href="pages/shop.html?category=bestsellers">Bestsellers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Info</h3>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#philosophy">Our Philosophy</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Shipping & Returns</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Connect</h3>
-                    <ul>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Facebook</a></li>
-                    </ul>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 unComfort. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <!-- Cart Sidebar Component -->
+        <div class="cart-sidebar">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button class="close-cart">&times;</button>
+            </div>
+            <div class="cart-items">
+                <!-- Cart items will be added dynamically with JavaScript -->
+            </div>
+            <div class="cart-total">
+                <p>Subtotal: <span class="subtotal">$0.00</span></p>
+                <a href="#" class="btn checkout-btn">Checkout</a>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2023 unComfort. All rights reserved.</p>
-        </div>
-    </footer>
+        <div class="cart-overlay"></div>
 
-    <!-- Cart Sidebar Component -->
-    <div class="cart-sidebar">
-        <div class="cart-header">
-            <h2>Your Cart</h2>
-            <button class="close-cart">&times;</button>
-        </div>
-        <div class="cart-items">
-            <!-- Cart items will be added dynamically with JavaScript -->
-        </div>
-        <div class="cart-total">
-            <p>Subtotal: <span class="subtotal">$0.00</span></p>
-            <a href="#" class="btn checkout-btn">Checkout</a>
-        </div>
-    </div>
-    <div class="cart-overlay"></div>
-
-    <!-- <script src="js/main.js"></script> -->
-    <script src="js/components.js"></script>
-    <script src="js/featured-card.js"></script>
+        <!-- <script src="js/main.js"></script> -->
+        <script src="js/components.js"></script>
+        <script src="js/featured-card.js"></script>
 </body>
-</html> 
+
+</html>

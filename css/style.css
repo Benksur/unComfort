@@ -11,7 +11,7 @@
 html {
     scroll-behavior: smooth;
     user-select: none;
-    
+
 }
 
 body {
@@ -73,7 +73,9 @@ section {
     color: #fff;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     margin-bottom: 20px;
 }
 
@@ -115,7 +117,8 @@ h1, h2, h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Darkened opacity */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Darkened opacity */
 }
 
 /* Navigation */
@@ -204,7 +207,7 @@ header {
     transition: width 0.3s ease;
 }
 
-.nav-links a:hover:after, 
+.nav-links a:hover:after,
 .nav-links a.active:after {
     width: 100%;
 }
@@ -223,7 +226,8 @@ header {
     text-align: center;
     color: #fff;
     position: relative;
-    min-height: 600px; /* Set a minimum height */
+    min-height: 600px;
+    /* Set a minimum height */
 }
 
 /* Ensure spacing for the content after the hero section */
@@ -241,7 +245,8 @@ main {
     max-width: 800px;
     padding: 0 20px;
     z-index: 1;
-    min-height: 200px; /* Add minimum height to ensure visibility */
+    min-height: 200px;
+    /* Add minimum height to ensure visibility */
 }
 
 .hero-content h1 {
@@ -323,8 +328,15 @@ main {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 .about-image {
@@ -338,9 +350,16 @@ main {
 
 .featured-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.featured-card {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .view-more {
@@ -404,11 +423,11 @@ footer {
     .about-content {
         flex-direction: column;
     }
-    
+
     .hero-content h1 {
         font-size: 56px;
     }
-    
+
     .about-text {
         width: 100%;
     }
@@ -418,32 +437,33 @@ footer {
     .transparent-nav {
         padding: 20px 30px;
     }
-    
+
     .nav-links {
         display: none;
     }
-    
+
     .hero-content h1 {
         font-size: 42px;
     }
-    
+
     .hero-content p {
         font-size: 18px;
     }
-    
+
     .footer-links {
         gap: 30px;
     }
-    
+
     section {
         padding: 60px 0;
     }
-    
+
     .about-text p {
         font-size: 16px;
     }
-    
-    .terminal-header, .terminal-command {
+
+    .terminal-header,
+    .terminal-command {
         font-size: 14px;
     }
 }
@@ -452,26 +472,26 @@ footer {
     .transparent-nav {
         padding: 15px 20px;
     }
-    
+
     .hero-content h1 {
         font-size: 36px;
     }
-    
+
     .btn {
         padding: 10px 20px;
         font-size: 14px;
     }
-    
+
     .about-text p {
         font-size: 14px;
         line-height: 1.6;
     }
-    
+
     .terminal-header {
         font-size: 12px;
         padding: 6px 10px;
     }
-    
+
     .terminal-command {
         font-size: 13px;
         padding: 10px 10px 5px;
@@ -513,4 +533,4 @@ footer {
     }
 }
 
-/* To preserve spaces, use non-breaking spaces in HTML (&nbsp;) */ 
+/* To preserve spaces, use non-breaking spaces in HTML (&nbsp;) */

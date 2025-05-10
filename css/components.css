@@ -1,5 +1,6 @@
 /* Currency and Cart Buttons */
-.currency-toggle, .cart-toggle {
+.currency-toggle,
+.cart-toggle {
     background: none;
     border: none;
     color: inherit;
@@ -22,14 +23,10 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    transition: transform 0.3s ease;
     max-width: 100%;
     margin-bottom: 30px;
 }
 
-.featured-card:hover {
-    transform: translateY(-5px);
-}
 
 .featured-card-image {
     position: relative;
@@ -87,7 +84,7 @@
     background-color: #5F6e42;
 }
 
-.color-box.grey {
+.color-box.gray {
     background-color: #ccc;
 }
 

@@ -1,12 +1,14 @@
-document.addEventListener('DOMContentLoaded', function() {
-    loadComponent('navbar-container', 'components/navbar.html', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    loadComponent('navbar-container', 'components/navbar.html', function () {
         setupNavbarScrollColor();
         console.log('Navbar scroll color change setup completed');
     });
-    
+
     // Load featured card component
-    loadComponent('featured-card-container', 'components/featured-card.html', function() {
+    loadComponent('featured-card-container', 'components/featured-card.html', function () {
         console.log('Featured card component loaded');
+        // Initialize featured cards after the component is loaded
+        initFeaturedCards();
     });
 });
 
@@ -25,7 +27,7 @@ function addAnimation() {
 function loadComponent(containerId, componentPath, callback) {
     const container = document.getElementById(containerId);
     if (!container) return;
-    
+
     fetch(componentPath)
         .then(response => response.text())
         .then(data => {
@@ -42,16 +44,16 @@ function loadComponent(containerId, componentPath, callback) {
 function setupNavbarScrollColor() {
     const nav = document.querySelector('.transparent-nav');
     const hero = document.getElementById('home');
-    
+
     if (!nav || !hero) {
         return;
     }
-    
-    window.addEventListener('scroll', function() {
+
+    window.addEventListener('scroll', function () {
         const heroBottom = hero.offsetTop + hero.offsetHeight;
         const scrollY = window.scrollY;
         const navHeight = nav.offsetHeight;
-        
+
         if (scrollY >= heroBottom - navHeight) {
             nav.classList.add('text-dark');
         } else {
