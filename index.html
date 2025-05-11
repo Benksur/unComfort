@@ -12,7 +12,9 @@
 <body>
     <!-- Full screen video background with overlay -->
     <div class="video-container">
-        <img src="img/yesh.jpg" alt="Background Image">
+        <video autoplay loop muted playsinline>
+            <source src="img/yesh1.mp4" type="video/mp4">
+        </video>
         <div class="overlay"></div>
     </div>
 
@@ -44,9 +46,7 @@
             <div class="container">
                 <h2>featured collection</h2>
                 <div class="featured-grid" id="featured-card-container"></div>
-                <div class="view-more">
-                    <a href="pages/shop.html" class="btn outline-btn">View All Products</a>
-                </div>
+            </div>
             </div>
         </section>
 
@@ -71,58 +71,41 @@
         </section>
 
         <footer>
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h2>unComfort</h2>
+            <div class="footer-divider"></div>
+            <div class="newsletter-section">
+                <div class="newsletter-content">
+                    <h2>SUBSCRIBE TO OUR NEWSLETTER_</h2>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="enter your email_">
+                        <button type="submit" class="btn outline-btn">subscribe</button>
+                    </form>
                 </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h3>Shop</h3>
-                        <ul>
-                            <li><a href="pages/shop.html">All Products</a></li>
-                            <li><a href="pages/shop.html?category=new">New Arrivals</a></li>
-                            <li><a href="pages/shop.html?category=bestsellers">Bestsellers</a></li>
-                        </ul>
+                <div class="newsletter-aside">
+                    <p>By subscribing to our newsletter, you agree to receive updates on our latest collections,
+                        exclusive offers, and news. We value your privacy and will only send relevant content. You can
+                        unsubscribe at any time, and your information will never be shared with third parties without
+                        your consent.</p>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-main">
+                <div class="footer-branding">
+                    <div class="logo">
+                        <a href="/"><span class="un">un</span><span class="comfort">comfort.</span></a>
                     </div>
-                    <div class="footer-column">
-                        <h3>Info</h3>
-                        <ul>
-                            <li><a href="#about">About Us</a></li>
-                            <li><a href="#philosophy">Our Philosophy</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Shipping & Returns</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Connect</h3>
-                        <ul>
-                            <li><a href="#">Instagram</a></li>
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">Facebook</a></li>
-                        </ul>
-                    </div>
+                </div>
+                <div class="footer-links-bottom">
+                    <a href="#">privacy policy</a>
+                    <a href="#">refund policy</a>
+                    <a href="#">shipping policy</a>
+                    <a href="#">terms of service</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 unComfort. All rights reserved.</p>
+                <p>&copy; 2025 unComfort. All rights reserved.</p>
             </div>
         </footer>
 
-        <!-- Cart Sidebar Component -->
-        <div class="cart-sidebar">
-            <div class="cart-header">
-                <h2>Your Cart</h2>
-                <button class="close-cart">&times;</button>
-            </div>
-            <div class="cart-items">
-                <!-- Cart items will be added dynamically with JavaScript -->
-            </div>
-            <div class="cart-total">
-                <p>Subtotal: <span class="subtotal">$0.00</span></p>
-                <a href="#" class="btn checkout-btn">Checkout</a>
-            </div>
-        </div>
-        <div class="cart-overlay"></div>
 
         <!-- <script src="js/main.js"></script> -->
         <script src="js/components.js"></script>
