@@ -1,15 +1,37 @@
 document.addEventListener('DOMContentLoaded', function () {
-    loadComponent('navbar-container', 'components/navbar.html', function () {
-        setupNavbarScrollColor();
-        console.log('Navbar scroll color change setup completed');
-    });
+    if (document.getElementById('navbar-container')) {
+        loadComponent('navbar-container', '../components/navbar.html', function () {
+            setupNavbarScrollColor();
+            console.log('Navbar scroll color change setup completed');
 
-    // Load featured card component
-    loadComponent('featured-card-container', 'components/featured-card.html', function () {
-        console.log('Featured card component loaded');
-        // Initialize featured cards after the component is loaded
-        initFeaturedCards();
-    });
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('#navbar-container .nav-links a');
+
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            console.log('Simple active navbar link setup. Path:', currentPath);
+        });
+    }
+
+    if (document.getElementById('shop-sidebar')) {
+        loadComponent('shop-sidebar', '../components/sidebar.html', function () {
+            console.log('Sidebar component loaded into #shop-sidebar');
+        });
+    }
+
+    if (document.getElementById('featured-card-container')) {
+        loadComponent('featured-card-container', 'components/featured-card.html', function () {
+            console.log('Featured card component loaded');
+            if (typeof initFeaturedCards === 'function') {
+                initFeaturedCards();
+            }
+        });
+    }
 });
 
 const scrollers = document.querySelectorAll('.scroller');
@@ -45,7 +67,9 @@ function setupNavbarScrollColor() {
     const nav = document.querySelector('.transparent-nav');
     const hero = document.getElementById('home');
 
-    if (!nav || !hero) {
+    // If we're not on the home page, make navbar black
+    if (!hero) {
+        nav.classList.add('text-dark');
         return;
     }
 

@@ -42,7 +42,7 @@ img {
 }
 
 section {
-    padding: 80px 0;
+    padding: 40px 0;
 }
 
 .btn {
@@ -426,9 +426,14 @@ footer {
 
 .footer-divider {
     height: 1px;
-    width: 100%;
     background-color: #000000;
-    margin: 0 auto 40px;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 40px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .footer-main {
@@ -468,120 +473,7 @@ footer {
     margin: 0 auto;
 }
 
-/* Responsive adjustments for footer */
-@media (max-width: 768px) {
-    .newsletter-section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
 
-    .newsletter-content {
-        margin-bottom: 30px;
-    }
-
-    .newsletter-form {
-        justify-content: center;
-    }
-
-    .footer-main {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-branding pre {
-        margin-bottom: 20px;
-    }
-
-    .footer-links-bottom {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .footer-links-bottom a {
-        margin: 5px 0;
-    }
-}
-
-/* Responsive Styles */
-@media (max-width: 991px) {
-    .about-content {
-        flex-direction: column;
-    }
-
-    .hero-content h1 {
-        font-size: 56px;
-    }
-
-    .about-text {
-        width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    .transparent-nav {
-        padding: 20px 30px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .hero-content h1 {
-        font-size: 42px;
-    }
-
-    .hero-content p {
-        font-size: 18px;
-    }
-
-    .footer-links {
-        gap: 30px;
-    }
-
-    section {
-        padding: 60px 0;
-    }
-
-    .about-text p {
-        font-size: 16px;
-    }
-
-    .terminal-header,
-    .terminal-command {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 576px) {
-    .transparent-nav {
-        padding: 15px 20px;
-    }
-
-    .hero-content h1 {
-        font-size: 36px;
-    }
-
-    .btn {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-
-    .about-text p {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
-    .terminal-header {
-        font-size: 12px;
-        padding: 6px 10px;
-    }
-
-    .terminal-command {
-        font-size: 13px;
-        padding: 10px 10px 5px;
-    }
-}
 
 .scroller {
     max-width: 100%;
@@ -632,4 +524,13 @@ footer {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+.video-showcase-section .container h2 {
+    text-align: center;
+}
+
+.video-showcase-section .container p {
+    margin-top: 20px;
+    text-align: center;
 }
