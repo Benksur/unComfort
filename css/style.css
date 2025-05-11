@@ -426,6 +426,7 @@ footer {
 
 .footer-divider {
     height: 1px;
+    width: 100%;
     background-color: #000000;
     margin: 0 auto 40px;
 }
@@ -618,3 +619,17 @@ footer {
 }
 
 /* To preserve spaces, use non-breaking spaces in HTML (&nbsp;) */
+
+/* Video Showcase Section */
+.video-showcase-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.video-showcase-content video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
