@@ -18,12 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    if (document.getElementById('shop-sidebar')) {
-        loadComponent('shop-sidebar', '../components/sidebar.html', function () {
-            console.log('Sidebar component loaded into #shop-sidebar');
-        });
-    }
-
     if (document.getElementById('featured-card-container')) {
         loadComponent('featured-card-container', 'components/featured-card.html', function () {
             console.log('Featured card component loaded');

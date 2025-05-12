@@ -534,3 +534,10 @@ footer {
     margin-top: 20px;
     text-align: center;
 }
+
+.product-grid {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+}
