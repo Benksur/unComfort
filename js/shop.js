@@ -1,10 +1,11 @@
-const products = [
+window.products = [
     {
         code: '8017',
         name: 'WINDGUARD OVERCOAT',
         price: 180,
         category: 'outerwear',
-        imageUrl: '../img/8017_gray.jpg'
+        imageUrl: '../img/8017_gray.jpg',
+        materials: "Shell: 77% Cotton, 23% Nylon/ Lining: 100% Polyester/ Hood: 100% Nylon/ Hood: Storage Bag: 100% Polyester/ Side Pocket Fabric: Outer Layer: 100% Polyester/ Side Pocket Fabric: Inner Layer: 77% Cotton, 23% Nylon"
     },
     {
         code: '8004',
@@ -115,8 +116,8 @@ function filterProducts(category) {
     container.innerHTML = '';
 
     const filtered = (category === 'all') 
-    ? products 
-    : products.filter(product => product.category === category);
+    ? window.products 
+    : window.products.filter(product => product.category === category);
 
     filtered.forEach(product => {
         container.appendChild(createProductCard(product));
