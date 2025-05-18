@@ -252,37 +252,60 @@
 
 .product-page-container {
     flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
 }
 
 
 .product-information-container {
-    width: 20rem;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 70vh;
-    padding-top: 120px;
-    padding-left: 50px;
-    padding-right: 20px;
-    background-color: #fff;
-    font-family: 'Courier Prime', monospace;
-    color: #333;
+    position: sticky;
+    top: 10rem;
+    margin-left: 3rem;
+}
+
+.product-image-container {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
+}
+
+.product-add-container {
+    position: sticky;
+    top: 10rem;
 }
 
 .product-page-title {
-    font-size: 15px;
+    font-size: 1.5rem;
     margin-bottom: 20px;
     font-weight: 200;
     text-align: left;
     letter-spacing: 1px;
 }
 
-.product-materials {
+.product-about {
     text-transform: lowercase;
-    font-size: 10px;
+    font-size: 1rem;
     color: #444;
-    margin-top: 150px;
+    margin-top: 50px;
     display: block;
+}
+
+.size-select {
+    padding: 8px 12px;
+    border: 1px solid #000;
+    background-color: #fff;
+    font-family: 'Courier Prime', monospace;
+    font-size: 16px;
+    color: #000;
+    border-radius: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.size-select:focus {
+    outline: 1px solid #000;
 }
