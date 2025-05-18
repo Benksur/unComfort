@@ -18,11 +18,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="product-price">$${product.price}</div>
                 </div>
                 <div class="product-card">
-                    <img src="${product.imageUrl}" alt="${product.name}">
-                    <img src="../img/${product.code}_1.jpg" alt="${product.name}">
-                    <img src="../img/${product.code}_2.jpg" alt="${product.name}">
-                    <img src="../img/${product.code}_3.jpg" alt="${product.name}">
-                    <img src="../img/${product.code}_4.jpg" alt="${product.name}">
+                    <img src="../../${product.imageUrl}" alt="${product.name}">
+                    <img src="../../img/${product.code}_1.jpg" alt="${product.name}">
+                    <img src="../../img/${product.code}_2.jpg" alt="${product.name}">
+                    <img src="../../img/${product.code}_3.jpg" alt="${product.name}">
+                    <img src="../../img/${product.code}_4.jpg" alt="${product.name}">
                 </div>
             </div>
         `;
