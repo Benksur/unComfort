@@ -541,3 +541,59 @@ footer {
     grid-template-columns: repeat(3, 1fr);
     gap: 4rem;
 }
+
+
+.lookbook-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.lookbook-section main {
+    margin-top: 10vh;
+    margin-left: 15vw;
+    width: 70vw;
+}
+
+.lookbook-section aside{
+    position: fixed;
+    width: 10vw;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    align-items: flex-end;
+}
+
+.lookbook-section aside img{
+    width: 110px;
+    height: 74px;
+    object-fit: cover;
+    border: 2px solid #222;
+    cursor: pointer;
+}
+
+.lookbook-collection-info{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    gap: 120px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+}
+
+.lookbook-image-container {
+  position: relative;
+  top: 15vh;
+  width: 100%;
+  height: 400vh;
+}
+
+.lookbook-image-container img {
+  position: sticky;
+  top: 10vh;
+  height: 70vh;
+  width: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
