@@ -5,7 +5,8 @@ window.products = [
         price: 180,
         category: 'outerwear',
         imageUrl: '../img/8017_gray.jpg',
-        materials: "Shell: 77% Cotton, 23% Nylon/ Lining: 100% Polyester/ Hood: 100% Nylon/ Hood: Storage Bag: 100% Polyester/ Side Pocket Fabric: Outer Layer: 100% Polyester/ Side Pocket Fabric: Inner Layer: 77% Cotton, 23% Nylon"
+        materials: "Shell: 77% Cotton, 23% Nylon/ Lining: 100% Polyester/ Hood: 100% Nylon/ Hood: Storage Bag: 100% Polyester/ Side Pocket Fabric: Outer Layer: 100% Polyester/ Side Pocket Fabric: Inner Layer: 77% Cotton, 23% Nylon",
+        colours: ['gray', 'brown']
     },
     {
         code: '8004',

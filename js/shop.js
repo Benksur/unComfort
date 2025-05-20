@@ -49,7 +49,7 @@ function createProductCard(product) {
                 <div class="product-code-name">
                     <span class="product-code">${product.code} ${product.name}</span>
                 </div>
-                <div class="product-price">$${product.price}</div>
+                <div>$${product.price}</div>
             </div>
         </a>
     `;
