@@ -559,10 +559,11 @@ footer {
     position: fixed;
     width: 10vw;
     margin-top: 10vh;
+    margin-left: 3vw;
     display: flex;
     flex-direction: column;
     gap: 3vh;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .lookbook-section aside img{
@@ -571,6 +572,16 @@ footer {
     object-fit: cover;
     border: 2px solid #222;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lookbook-section aside img:hover {
+    opacity: 0.9;
+}
+
+.lookbook-section aside img.active{
+    width: 140px;
+    height: 104px;
 }
 
 .lookbook-collection-info{
