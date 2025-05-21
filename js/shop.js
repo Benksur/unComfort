@@ -33,7 +33,8 @@ function filterProducts(category) {
 
     filtered.forEach(product => {
         container.appendChild(createProductCard(product));
-    })
+    });
+    if (window.updateAllPrices) window.updateAllPrices();
 }
 function createProductCard(product) {
     const card = document.createElement('div');
