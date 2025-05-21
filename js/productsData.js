@@ -68,5 +68,15 @@ window.products = [
         materials: 'Fabric details: Shell: 100% Nylon/ Lining: 100% Polyester/ Filling: 100% Polyester/ Shoulder: 100% Polyester',
         colours: ['black', 'olive'],
         sizes: ['ONE SIZE']
+    },
+    {  
+        code: '8005',
+        name: 'RELAXED ANKLE TRACKS',
+        price: 70,
+        category: 'trackies',
+        imageUrl: '../img/8005_black.jpg',
+        materials: 'Fabric details: Body: 100% Cotton/ Pocket Lining: 65% Polyester, 35% Cotton Function details: Fit: Wide Pockets: With Pockets Fabric: 100% Polyester',
+        colours: ['black', 'gray', 'blue'],
+        sizes: ['XS','S', 'M', 'L', 'XL', 'XXL'],
     }
 ];
