@@ -1,0 +1,10 @@
+.policy-main-content {
+    padding: 2rem;
+    align-items: center;
+}
+
+.policy-main-content p {
+    max-width: 80ch;
+    text-align: left;
+    margin: 0 auto;
+}
