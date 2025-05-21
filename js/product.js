@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentColour;
 
     // Function to initialize color box event listeners
-    function initializeColorBoxListeners() {
+    function colorBoxListener() {
         const colorBoxes = document.querySelectorAll('.color-box');
         colorBoxes.forEach(box => {
             box.addEventListener('click', function() {
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Function to initialize size select event listener
-    function initializeSizeSelect() {
+    function sizeSelectListener() {
         const sizeSelect = document.querySelector('.size-select');
         if (sizeSelect) {
             sizeSelect.addEventListener('change', function() {
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Function to initialize quantity buttons
-    function initializeQuantityButtons() {
+    function quantityButtonsListener() {
         const addNumberButtons = document.querySelectorAll('.add-number-button');
         const addNumberInput = document.querySelector('.add-number-input');
 
@@ -72,21 +72,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Function to initialize add to cart button
-    function initializeAddToCart() {
+    function addToCartListener() {
         const addToCartButton = document.querySelector('.add-button');
         if (addToCartButton) {
             addToCartButton.addEventListener('click', function() {
                 const selectedFeatures = getSelectedFeatures();
-                console.log('Adding to cart:', selectedFeatures);
+                if (!product.sizes.includes(selectedFeatures.size)) {
+                    alert('Please select a size');
+                    return;
+                }
+                if (!product.colours.includes(selectedFeatures.color)) {
+                    alert('Please select a color');
+                    return;
+                }
                 
-                // Here you would typically send this data to your cart system
-                // For now, we'll just log it
-                console.log('Product added to cart:', {
+                let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+                cart.push({
                     productCode: product.code,
                     productName: product.name,
                     price: product.price,
                     ...selectedFeatures
                 });
+                localStorage.setItem('cartItems', JSON.stringify(cart));
+                renderCartSidebar(cart);
             });
         }
     }
@@ -121,13 +129,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     <a class="product-price">$${product.price}</a>
                     <select class="size-select monospace-font placeholder">
                         <option value="" disabled selected>select a size</option>
-                        <option value="small">small</option>
-                        <option value="medium">medium</option>
-                        <option value="large">large</option>
+                        ${product.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
                     </select>
                     <div class="color-options">
-                        <div class="color-box gray" data-color="gray"></div>
-                        <div class="color-box brown" data-color="brown"></div>
+                        ${product.colours.map(colour => `<div class="color-box ${colour}" data-color="${colour}"></div>`).join('')}
                     </div>
                     <div class="add-to-cart ">
                         <button class="add-number-button monospace-font">-</button>
@@ -140,10 +145,10 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         
         // Initialize all event listeners
-        initializeColorBoxListeners();
-        initializeSizeSelect();
-        initializeQuantityButtons();
-        initializeAddToCart();
+        colorBoxListener();
+        sizeSelectListener();
+        quantityButtonsListener();
+        addToCartListener();
     } else {
         const productSection = document.getElementById('product');
         productSection.innerHTML = '<p>Product not found</p>';

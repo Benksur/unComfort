@@ -6,42 +6,58 @@ window.products = [
         category: 'outerwear',
         imageUrl: '../img/8017_gray.jpg',
         materials: "Shell: 77% Cotton, 23% Nylon/ Lining: 100% Polyester/ Hood: 100% Nylon/ Hood: Storage Bag: 100% Polyester/ Side Pocket Fabric: Outer Layer: 100% Polyester/ Side Pocket Fabric: Inner Layer: 77% Cotton, 23% Nylon",
-        colours: ['gray', 'brown']
+        colours: ['gray', 'brown'],
+        sizes: ['XS','S', 'M', 'L', 'XL'],
     },
     {
         code: '8004',
         name: 'RELAXED FLEECE',
         price: 140,
         category: 'hoodies',
-        imageUrl: '../img/8004_gray.jpg'
+        imageUrl: '../img/8004_gray.jpg',
+        materials: "FunBody: 51% Polyester, 49% Cotton/ Pocket Lining: 100% Polyester Fabric: 100% Polyester",
+        colours: ['gray', 'brown'],
+        sizes: ['XS','S', 'M', 'L', 'XL'],
     },
     {
         code: '8010',
         name: 'RELAXED COLLARED',
         price: 95,
         category: 'tees',
-        imageUrl: '../img/8010_beige.jpg'
+        imageUrl: '../img/8010_beige.jpg',
+        materials: "Fabric details: 53% Modal, 47% Cotton Function details: Sheer: Not Sheer(Only 00 White is slightly sheer) Fit: Relaxed",
+        colours: ['beige', 'black', 'blue', 'white'],
+        sizes: ['XXS','XS','S', 'M', 'L', 'XL', 'XXL'],
     },
     {
         code: '8001',
         name: 'LIGHT STRINGER',
         price: 40,
         category: 'singlets',
-        imageUrl: '../img/8001_black.jpg'
+        imageUrl: '../img/8001_black.jpg',
+        materials: 'Fabric details: 73% Cotton, 27% Polyester ( 27% Made From Recycled Polyester )Function details: Sheer: Not Sheer(Only 00 White is slightly sheer) Fit: Fitted Pockets: No Pockets Fabric: 100% Polyester',
+        colours: ['black', 'gray'],
+        sizes: ['XXS','XS','S', 'M', 'L', 'XL', 'XXL'],
     },
     {
         code: '8023',
         name: 'KNEECUT JORTS',
         price: 100,
         category: 'shorts',
-        imageUrl: '../img/8023_black.jpg'
+        imageUrl: '../img/8023_black.jpg',
+        materials: 'Fabric details: Body: 100% Cotton/ Pocket Lining: 65% Polyester, 35% Cotton Function details: Fit: Loose Pockets: With Pockets Fabric: 100% Polyester',
+        colours: ['black', 'blue'],
+        sizes: ['XS','S', 'M', 'L', 'XL', 'XXL'],
     },
     {
         code: '8003',
         name: 'WIDECUT CHINO',
         price: 140,
         category: 'bottoms',
-        imageUrl: '../img/8003_black.jpg'
+        imageUrl: '../img/8003_black.jpg',
+        materials: 'Fabric details: Body: 77% Cotton, 23% Polyester/ Pocket Lining: 65% Polyester, 35% Cotton Function details: Fit: Wide Pockets: With Pockets Fabric: 100% Polyester',
+        colours: ['black', 'blue'],
+        sizes: ['XXS','XS','S', 'M', 'L', 'XL', 'XXL'],
     },
     {
         code: '8002',
@@ -49,7 +65,8 @@ window.products = [
         price: 80,
         category: 'accessories',
         imageUrl: '../img/8002_black.jpg',
-        materials: 'Shell: 100% Nylon/ Lining: 100% Polyester/ Filling: 100% Polyester/ Shoulder: 100% Polyester',
-        colours: ['black', 'olive']
+        materials: 'Fabric details: Shell: 100% Nylon/ Lining: 100% Polyester/ Filling: 100% Polyester/ Shoulder: 100% Polyester',
+        colours: ['black', 'olive'],
+        sizes: ['ONE SIZE']
     }
 ];

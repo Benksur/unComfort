@@ -1,0 +1,38 @@
+#cart-sidebar-box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 9999;
+  box-shadow: -2px 0 16px rgba(0, 0, 0, 0.09);
+  display: flex;
+  flex-direction: column;
+}
+
+#cart-sidebar-box .cart-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+#cart-sidebar-box .cart-content {
+  margin: 48px 24px 0 24px;
+  flex: 1 1 auto;
+}
+
+#cart-sidebar-box .cart-content h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+#cart-sidebar-box .cart-content p {
+  color: #666;
+}
