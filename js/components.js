@@ -4,17 +4,25 @@ document.addEventListener('DOMContentLoaded', function () {
             setupNavbarScrollColor();
             console.log('Navbar scroll color change setup completed');
 
+            // Ensure navbar currency is correct after dynamic load
+            if (window.updateNavbarCurrency) window.updateNavbarCurrency();
+
             const currentPath = window.location.pathname;
             const navLinks = document.querySelectorAll('#navbar-container .nav-links a');
 
             navLinks.forEach(link => {
-                if (link.getAttribute('href') === currentPath) {
+                if (link.pathname === currentPath) {
                     link.classList.add('active');
                 } else {
                     link.classList.remove('active');
                 }
             });
             console.log('Simple active navbar link setup. Path:', currentPath);
+
+            // Listen for currencyChanged events and update cart total
+            document.addEventListener('currencyChanged', function () {
+                if (window.updateCartTotal) window.updateCartTotal();
+            });
         });
     }
 
@@ -24,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (typeof initFeaturedCards === 'function') {
                 initFeaturedCards();
             }
+            if (window.updateAllPrices) window.updateAllPrices();
         });
     }
 });

@@ -40,19 +40,29 @@ function createProductCard(product) {
     card.className = 'product-card';
     card.setAttribute('data-category', product.category);
     card.setAttribute('data-product-code', product.code);
+    let imageUrl = product.imageUrl;
     card.innerHTML = `
         <a href="product.html?code=${product.code}" class="product-link">
             <div class="product-image">
-                <img src="${product.imageUrl}" alt="${product.name}">
+                <img src="${imageUrl}" alt="${product.name}" class="product-img-hover">
             </div>
             <div class="product-meta">
                 <div class="product-code-name">
                     <span class="product-code">${product.code} ${product.name}</span>
                 </div>
-                <div>$${product.price}</div>
+                <div><span class="price" data-aud="${product.price}"></span></div>
             </div>
         </a>
     `;
+
+    // Add hover event listeners to swap image
+    const img = card.querySelector('.product-img-hover');
+    img.addEventListener('mouseover', () => {
+        img.src = '../img/' + product.code + '_1.jpg';
+    });
+    img.addEventListener('mouseout', () => {
+        img.src = product.imageUrl;
+    });
     return card;
 }
 

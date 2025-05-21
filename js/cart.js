@@ -7,7 +7,16 @@ function createCartSidebar() {
     closeBtn.innerHTML = '&times;';
     closeBtn.className = 'cart-close-btn';
     closeBtn.setAttribute('aria-label', 'Close cart sidebar');
-    closeBtn.addEventListener('click', () => box.remove());
+    closeBtn.addEventListener('click', () => {
+        box.classList.remove('show');
+        box.classList.add('hide');
+        box.addEventListener('transitionend', function handler(e) {
+            if (e.propertyName === 'opacity') {
+                box.removeEventListener('transitionend', handler);
+                box.remove();
+            }
+        });
+    });
     box.appendChild(closeBtn);
 
     // Content
@@ -20,13 +29,24 @@ function createCartSidebar() {
     // Always render the latest cart
     const items = JSON.parse(localStorage.getItem('cartItems')) || [];
     renderCartSidebar(items);
+
+    // Force reflow and add .show for transition
+    void box.offsetHeight;
+    box.classList.add('show');
 }
 
 
 function toggleCart() {
     const existingBox = document.getElementById('cart-sidebar-box');
     if (existingBox) {
-        existingBox.remove();
+        existingBox.classList.remove('show');
+        existingBox.classList.add('hide');
+        existingBox.addEventListener('transitionend', function handler(e) {
+            if (e.propertyName === 'opacity') {
+                existingBox.removeEventListener('transitionend', handler);
+                existingBox.remove();
+            }
+        });
     } else {
         const items = JSON.parse(localStorage.getItem('cartItems')) || [];
         renderCartSidebar(items);
@@ -67,20 +87,37 @@ function renderCartSidebar(items) {
             : items.map(item => `
                 <div class="cart-item" data-id="${item.productCode}">
                     <p><strong>${item.productCode} ${item.productName}</strong></p>
-                    <p>Price: $${item.price.toFixed(2)}</p>
-                    <p>Size: ${item.size}</p>
-                    <p>Color: ${item.color}</p>
-                    <p>Qty: 
+                    <p>price: <span class="price" data-aud="${item.price}"></span></p>
+                    <p>size: ${item.size}</p>
+                    <p>color: ${item.color}</p>
+                    <p>qty: 
                         <button onclick="updateQuantity('${item.productCode}', -1)">−</button>
                         ${item.quantity || 1}
                         <button onclick="updateQuantity('${item.productCode}', 1)">+</button>
                     </p>
-                    <button onclick="removeItem('${item.productCode}')">Remove</button>
-                    <hr>
+                    <button onclick="removeItem('${item.productCode}')">remove</button>
                 </div>
             `).join('')}
+            <hr>
+            <p style="margin-top: 1rem;">total: <span id="cart-total-price" data-total></span></p>
+            <button class="add-button" onclick="window.location.href='/pages/checkout.html'">checkout</button>
     `;
+    // Update prices and total after rendering
+    if (window.updateAllPrices) window.updateAllPrices();
+    // Update total
+    window.updateCartTotal && window.updateCartTotal();
 }
+
+// Global function to update cart total price (for currency changes)
+window.updateCartTotal = function() {
+    const items = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const currency = localStorage.getItem('selectedCurrency');
+    if (window.formatPrice) {
+        const total = items.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0);
+        const totalEl = document.getElementById('cart-total-price');
+        if (totalEl) totalEl.textContent = window.formatPrice(total, currency);
+    }
+};
 // Global access
 window.toggleCart = toggleCart;
 window.updateQuantity = updateQuantity;

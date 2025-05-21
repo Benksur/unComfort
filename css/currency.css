@@ -1,0 +1,49 @@
+#currency-selector-box {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 7vw;
+    background: #fff;
+    z-index: 1000;
+    padding: 12px;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid #000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#currency-selector-box.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+#currency-selector-box.hide {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+/* Ensure parent li is relatively positioned for dropdown anchor */
+.nav-links li { position: relative; }
+
+
+#currency-selector-box .currency-selector-btn {
+    color: #000;
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Courier Prime', monospace;
+}
+
+#currency-selector-box .currency-selector-btn:hover {
+    text-decoration: underline;
+}

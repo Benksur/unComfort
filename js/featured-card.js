@@ -23,6 +23,22 @@ function initFeaturedCards() {
     }
 
     featuredCards.forEach(card => {
+        // --- Currency price rendering ---
+        const audPrice = parseFloat(card.getAttribute('data-aud'));
+        if (!isNaN(audPrice)) {
+            let priceEl = card.querySelector('.featured-price');
+            if (!priceEl) {
+                priceEl = document.createElement('span');
+                priceEl.className = 'featured-price price';
+                priceEl.setAttribute('data-aud', audPrice);
+                // Insert price element at a logical location (e.g., after title)
+                const title = card.querySelector('.product-title');
+                if (title) title.insertAdjacentElement('afterend', priceEl);
+            } else {
+                priceEl.setAttribute('data-aud', audPrice);
+            }
+        }
+
         const colorBoxes = card.querySelectorAll('.color-box');
         console.log('Found color boxes:', colorBoxes.length);
 

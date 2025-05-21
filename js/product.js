@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
                 <div class="product-add-container">
-                    <a class="product-price">$${product.price}</a>
+                    <a class="product-price price" data-aud="${product.price}"></a>
                     <select class="size-select monospace-font placeholder">
                         <option value="" disabled selected>select a size</option>
                         ${product.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
