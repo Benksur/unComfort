@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Update the main product image
                 const mainImage = document.querySelector('.product-card img:first-child');
                 if (mainImage) {
-                    mainImage.src = `../../img/${product.code}_${currentColour}.jpg`;
+                    mainImage.src = `/unComfort/img/${product.code}_${currentColour}.jpg`;
                 }
             });
         });

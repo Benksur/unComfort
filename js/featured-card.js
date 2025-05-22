@@ -14,7 +14,7 @@ function initFeaturedCards() {
         colorBoxes.forEach(box => {
             const color = box.getAttribute('data-color');
             colors[color.toLowerCase()] = {
-                url: `../img/${productCode}_${color.toLowerCase()}.jpg`,
+                url: `/unComfort/img/${productCode}_${color.toLowerCase()}.jpg`,
                 name: color.charAt(0).toUpperCase() + color.slice(1),
             };
         });

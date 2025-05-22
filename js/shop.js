@@ -1,6 +1,6 @@
     document.addEventListener('DOMContentLoaded', function () {
     if (document.getElementById('shop-sidebar')) {
-        loadComponent('shop-sidebar', '../components/sidebar.html', function () {
+        loadComponent('shop-sidebar', '/unComfort/components/sidebar.html', function () {
             setupSidebarFilters();
         });
     }    
@@ -59,7 +59,7 @@ function createProductCard(product) {
     // Add hover event listeners to swap image
     const img = card.querySelector('.product-img-hover');
     img.addEventListener('mouseover', () => {
-        img.src = '../img/' + product.code + '_1.jpg';
+        img.src = '/unComfort/img/' + product.code + '_1.jpg';
     });
     img.addEventListener('mouseout', () => {
         img.src = product.imageUrl;

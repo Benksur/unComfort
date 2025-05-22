@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     if (document.getElementById('navbar-container')) {
-        loadComponent('navbar-container', '../components/navbar.html', function () {
+        loadComponent('navbar-container', '/unComfort/components/navbar.html', function () {
             setupNavbarScrollColor();
             console.log('Navbar scroll color change setup completed');
 
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (document.getElementById('featured-card-container')) {
-        loadComponent('featured-card-container', 'components/featured-card.html', function () {
+        loadComponent('featured-card-container', '/unComfort/components/featured-card.html', function () {
             console.log('Featured card component loaded');
             if (typeof initFeaturedCards === 'function') {
                 initFeaturedCards();
