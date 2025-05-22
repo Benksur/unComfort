@@ -107,27 +107,18 @@ h3 {
 
 
 /* Video Background */
-.video-container {
+.video-container, .video-container video, #background-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
+    object-fit: cover;
     z-index: -1;
     overflow: hidden;
 }
 
-.video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 #background-video {
-    position: absolute;
     top: 50%;
     left: 50%;
     min-width: 100%;
@@ -135,7 +126,6 @@ h3 {
     width: auto;
     height: auto;
     transform: translate(-50%, -50%);
-    object-fit: cover;
 }
 
 .overlay {
@@ -155,7 +145,6 @@ header {
     left: 0;
     width: 100%;
     z-index: 100;
-
 }
 
 .transparent-nav {
@@ -165,7 +154,191 @@ header {
     padding: 20px 50px;
     color: #fff;
     background-color: transparent;
+    position: relative;
 }
+
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 200;
+}
+.nav-hamburger span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 4px 0;
+    background: #000;
+    /* Match .comfort color */
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    z-index: 9999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nav-overlay.active {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.nav-overlay-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+    align-items: center;
+}
+
+.nav-overlay-links li a {
+    color: #000;
+    font-size: 2.2rem;
+    font-family: 'Courier Prime', monospace;
+    letter-spacing: 2px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav-overlay-links li a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.nav-close {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    font-size: 3rem;
+    color: #000 !important;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10000;
+    line-height: 1;
+}
+
+/* Always force nav-close to be black, even in .text-dark or overlay states */
+.nav-close, .nav-overlay .nav-close, .currency-overlay .nav-close {
+    color: #000 !important;
+}
+
+@media (max-width: 900px) {
+    html, body {
+        font-size: 90%;
+    }
+    .newsletter-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .newsletter-content {
+        width: 100%;
+    }
+    .newsletter-aside {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+        flex-basis: auto;
+    }
+    .transparent-nav {
+        padding: 13px 15px;
+    }
+    .nav-links {
+        display: none !important;
+    }
+    .nav-hamburger {
+        display: flex;
+    }
+    .logo {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    html, body {
+        font-size: 80%;
+    }
+    .newsletter-content h2 {
+        font-size: 18px;
+    }
+    .newsletter-aside {
+        font-size: 14px;
+    }
+}
+
+
+.currency-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    z-index: 10001;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s;
+    opacity: 1;
+}
+
+.currency-close {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    font-size: 3rem;
+    color: #000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10002;
+    line-height: 1;
+}
+
+.currency-options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+    align-items: center;
+}
+
+.currency-option button{
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: 'Courier Prime', monospace;
+}
+
 
 .transparent-nav.scrolled {
     background-color: rgba(0, 0, 0, 0.9);
@@ -537,6 +710,10 @@ footer {
     }
 }
 
+.scroller:hover .scroller-list {
+    animation-play-state: paused;
+}
+
 /* To preserve spaces, use non-breaking spaces in HTML (&nbsp;) */
 
 /* Video Showcase Section */
@@ -568,6 +745,21 @@ footer {
     grid-template-columns: repeat(3, 1fr);
     gap: 4rem;
 }
+
+@media (max-width: 900px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+    }
+}
+
 
 
 .lookbook-section {

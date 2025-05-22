@@ -135,9 +135,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         ${product.colours.map(colour => `<div class="color-box ${colour}" data-color="${colour}"></div>`).join('')}
                     </div>
                     <div class="add-to-cart ">
-                        <button class="add-number-button monospace-font">-</button>
-                        <a class="add-number-input monospace-font" value="1">1</a>
-                        <button class="add-number-button monospace-font">+</button>
+                            <button class="add-number-button monospace-font">-</button>
+                            <a class="add-number-input monospace-font" value="1">1</a>
+                            <button class="add-number-button monospace-font">+</button>
                         <button class="add-button monospace-font">add to cart</button>
                     </div>
                 </div>

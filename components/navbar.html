@@ -1,5 +1,8 @@
 <header>
     <nav class="transparent-nav">
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu">
+            <span></span><span></span><span></span>
+        </button>
         <div class="logo">
             <a href="/"><span class="un">un</span><span class="comfort">comfort.</span></a>
         </div>
@@ -10,5 +13,26 @@
             <li><a id="cart-toggle">cart</a></li>
             <li><a href="/pages/login.html">login</a></li>
         </ul>
+        <div class="nav-overlay" id="nav-overlay">
+            <button class="nav-close" id="nav-close" aria-label="Close navigation menu">&times;</button>
+            <ul class="nav-overlay-links">
+                <li><a href="/pages/shop.html">shop</a></li>
+                <li><a href="/pages/lookbook.html">lookbook</a></li>
+                <li><a id="currency-toggle-overlay">$aud</a></li>
+                <li><a id="cart-toggle-overlay">cart</a></li>
+                <li><a href="/pages/login.html">login</a></li>
+            </ul>
+        </div>
+        <div class="currency-overlay" id="currency-overlay" style="display: none;">
+            <button class="currency-close" id="currency-close" aria-label="Close currency menu">&times;</button>
+            <ul class="nav-overlay-links">
+                <li><a data-currency="AUD" class="currency-link">aud</a></li>
+                <li><a data-currency="USD" class="currency-link">usd</a></li>
+                <li><a data-currency="EUR" class="currency-link">eur</a></li>
+                <li><a data-currency="GBP" class="currency-link">gbp</a></li>
+                <li><a data-currency="CAD" class="currency-link">cad</a></li>
+                <li><a data-currency="JPY" class="currency-link">jpy</a></li>
+            </ul>
+        </div>
     </nav>
 </header>
