@@ -100,7 +100,7 @@ function renderCartSidebar(items) {
             `).join('')}
             <hr>
             <p style="margin-top: 1rem;">total: <span id="cart-total-price" data-total></span></p>
-            <button class="add-button" onclick="window.location.href='/pages/checkout.html'">checkout</button>
+            <button class="add-button" onclick="window.location.href='/unComfort/pages/checkout.html'">checkout</button>
     `;
     // Update prices and total after rendering
     if (window.updateAllPrices) window.updateAllPrices();
