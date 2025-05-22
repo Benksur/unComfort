@@ -1,15 +1,29 @@
+// created by ty behnke - 47069374
+
+/*
+ * Load components in DOM, handle navbar and featured card creation
+ */
 document.addEventListener('DOMContentLoaded', function () {
     if (document.getElementById('navbar-container')) {
         loadComponent('navbar-container', '/unComfort/components/navbar.html', function () {
-            setupNavbarScrollColor();
-            console.log('Navbar scroll color change setup completed');
-
-            // Ensure navbar currency is correct after dynamic load
-            if (window.updateNavbarCurrency) window.updateNavbarCurrency();
-
+            // navbar elements
             const currentPath = window.location.pathname;
             const navLinks = document.querySelectorAll('#navbar-container .nav-links a');
-
+            const hamburger = document.getElementById('nav-hamburger');
+            const overlay = document.getElementById('nav-overlay');
+            const closeBtn = document.getElementById('nav-close');
+            const overlayLinks = overlay ? overlay.querySelectorAll('.nav-overlay-links a') : [];
+            const cartToggle = document.getElementById('cart-toggle');
+            const cartToggleOverlay = document.getElementById('cart-toggle-overlay');
+            const currencyToggle = document.getElementById('currency-toggle');
+            const currencyToggleOverlay = document.getElementById('currency-toggle-overlay');
+            const currencyOverlay = document.getElementById('currency-overlay');
+            const currencyClose = document.getElementById('currency-close');
+            // change navbar color depending on scroll location of landing page
+            setupNavbarScrollColor();
+            // ensure navbar currency is correct after refresh
+            if (window.updateNavbarCurrency) window.updateNavbarCurrency();
+            // set active navbar link
             navLinks.forEach(link => {
                 if (link.pathname === currentPath) {
                     link.classList.add('active');
@@ -17,19 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     link.classList.remove('active');
                 }
             });
-            console.log('Simple active navbar link setup. Path:', currentPath);
-
-            // Listen for currencyChanged events and update cart total
+            // listen for currencyChanged events and update cart total
             document.addEventListener('currencyChanged', function () {
                 if (window.updateCartTotal) window.updateCartTotal();
             });
-
-            // Responsive Navbar Overlay Toggle
-            const hamburger = document.getElementById('nav-hamburger');
-            const overlay = document.getElementById('nav-overlay');
-            const closeBtn = document.getElementById('nav-close');
-            const overlayLinks = overlay ? overlay.querySelectorAll('.nav-overlay-links a') : [];
-
+            // open and close overlay
             function openOverlay() {
                 overlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
@@ -38,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 overlay.classList.remove('active');
                 document.body.style.overflow = '';
             }
+            // listeners for mobile/tablet navbar elements
             if (hamburger && overlay && closeBtn) {
                 hamburger.addEventListener('click', openOverlay);
                 closeBtn.addEventListener('click', closeOverlay);
@@ -45,99 +52,106 @@ document.addEventListener('DOMContentLoaded', function () {
                     link.addEventListener('click', closeOverlay);
                 });
             }
-            // Overlay Cart and Currency Toggle
-            const cartToggle = document.getElementById('cart-toggle');
-            const cartToggleOverlay = document.getElementById('cart-toggle-overlay');
+            // overlay cart and currency toggle
             if (cartToggle && cartToggleOverlay) {
                 cartToggleOverlay.addEventListener('click', function(e) {
                     e.preventDefault();
                     cartToggle.click();
                 });
             }
-            const currencyToggle = document.getElementById('currency-toggle');
-            const currencyToggleOverlay = document.getElementById('currency-toggle-overlay');
-            const currencyOverlay = document.getElementById('currency-overlay');
-            const currencyClose = document.getElementById('currency-close');
+            // listeners for overlay currency toggle
             if (currencyToggle && currencyToggleOverlay && currencyOverlay && currencyClose) {
-                // Sync overlay currency text with main nav
+                // sync overlay currency text with main nav
                 currencyToggleOverlay.textContent = currencyToggle.textContent;
                 hamburger && hamburger.addEventListener('click', function() {
                     currencyToggleOverlay.textContent = currencyToggle.textContent;
                 });
-                // Show currency overlay on overlay currency click
+                // show currency overlay on overlay currency click
                 currencyToggleOverlay.addEventListener('click', function(e) {
                     e.preventDefault();
-                    currencyOverlay.style.display = 'flex';
-                    currencyOverlay.style.position = 'fixed';
-                    currencyOverlay.style.top = 0;
-                    currencyOverlay.style.left = 0;
-                    currencyOverlay.style.width = '100vw';
-                    currencyOverlay.style.height = '100vh';
-                    currencyOverlay.style.background = '#fff';
-                    currencyOverlay.style.zIndex = 10000;
-                    currencyOverlay.style.flexDirection = 'column';
-                    currencyOverlay.style.justifyContent = 'center';
-                    currencyOverlay.style.alignItems = 'center';
+                    createNavOverlay(currencyOverlay);
                 });
-                // Hide overlay on close
+                // hide overlay on close
                 currencyClose.addEventListener('click', function() {
                     currencyOverlay.style.display = 'none';
                 });
-                // Handle currency option click (updated for .currency-link)
+                // handle currency selection
                 currencyOverlay.querySelectorAll('.currency-link').forEach(btn => {
                     btn.addEventListener('click', function(e) {
                         e.preventDefault();
                         const selected = btn.getAttribute('data-currency');
                         localStorage.setItem('selectedCurrency', selected);
-                        // Update nav and overlay text
+                        // update nav and overlay text
                         if (currencyToggle) currencyToggle.textContent = '$' + selected.toLowerCase();
                         if (currencyToggleOverlay) currencyToggleOverlay.textContent = '$' + selected.toLowerCase();
-                        // Hide overlay
+                        // hide overlay
                         currencyOverlay.style.display = 'none';
-                        // Trigger currencyChanged event
+                        // trigger currencyChanged event
                         document.dispatchEvent(new Event('currencyChanged'));
                     });
                 });
-                // Also listen for currencyChanged event
+                // also listen for currencyChanged event
                 document.addEventListener('currencyChanged', function() {
                     const stored = localStorage.getItem('selectedCurrency') || 'AUD';
                     currencyToggleOverlay.textContent = '$' + stored.toLowerCase();
                     currencyToggle.textContent = '$' + stored.toLowerCase();
                 });
             }
+            // close overlay on resize
             window.addEventListener('resize', function () {
                 if (window.innerWidth > 900) closeOverlay();
             });
         });
     }
-
+    // featured card component
     if (document.getElementById('featured-card-container')) {
+        // load creation from featured-card.js
         loadComponent('featured-card-container', '/unComfort/components/featured-card.html', function () {
             console.log('Featured card component loaded');
+            // imported function from featured-card.js
             if (typeof initFeaturedCards === 'function') {
                 initFeaturedCards();
             }
+            // update prices
             if (window.updateAllPrices) window.updateAllPrices();
         });
     }
 });
 
-const scrollers = document.querySelectorAll('.scroller');
+// inject overlay styling.
+function createNavOverlay(box) {
+    box.style.display = 'flex';
+    box.style.position = 'fixed';
+    box.style.top = 0;
+    box.style.left = 0;
+    box.style.width = '100vw';
+    box.style.height = '100vh';
+    box.style.background = '#fff';
+    box.style.zIndex = 10000;
+    box.style.flexDirection = 'column';
+    box.style.justifyContent = 'center';
+    box.style.alignItems = 'center';
+}
 
+// scrolling animation at top of landing page
+const scrollers = document.querySelectorAll('.scroller');
+// disable is user has reduced motion enabled
 if (!window.matchMedia("(prefers-reduced-motion: reduce").matches) {
     addAnimation();
 }
-
+// add animation element
 function addAnimation() {
     scrollers.forEach(scroller => {
         scroller.setAttribute("data-animated", true)
     });
 }
 
+// load static html components (/components directory)
 function loadComponent(containerId, componentPath, callback) {
+    // get container element
     const container = document.getElementById(containerId);
     if (!container) return;
-
+    // fetch component
     fetch(componentPath)
         .then(response => response.text())
         .then(data => {
@@ -151,26 +165,28 @@ function loadComponent(containerId, componentPath, callback) {
         });
 }
 
+/*
+ * changes navbar color based on location on landing page
+ */
 function setupNavbarScrollColor() {
+    // get navbar and hero elements
     const nav = document.querySelector('.transparent-nav');
     const hero = document.getElementById('home');
     const hamburger = document.getElementById('nav-hamburger');
     const hamburgerSpans = hamburger ? hamburger.querySelectorAll('span') : [];
-
-    // Helper to set hamburger color
+    // helper to set hamburger color
     function setHamburgerColor(dark) {
         hamburgerSpans.forEach(span => {
             span.style.background = dark ? '#000' : '#fff';
         });
     }
-
-    // If we're not on the home page, make navbar black
+    // if not on the home page, make navbar black
     if (!hero) {
         nav.classList.add('text-dark');
         setHamburgerColor(true);
         return;
     }
-
+    // add scroll listener to find location on landing page
     window.addEventListener('scroll', function () {
         const heroBottom = hero.offsetTop + hero.offsetHeight;
         const scrollY = window.scrollY;
@@ -183,7 +199,7 @@ function setupNavbarScrollColor() {
         }
         setHamburgerColor(dark);
     });
-    // Set initial color
+    // set initial color
     const initialDark = window.scrollY >= (hero.offsetTop + hero.offsetHeight) - nav.offsetHeight;
     setHamburgerColor(initialDark);
 }

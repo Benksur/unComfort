@@ -1,6 +1,12 @@
+// created by ty behnke - 47069374
+
+/*
+ * creates and displays currency selector (desktop mode)
+ */
 function createCurrencySelector() {
     const box = document.createElement('div');
     box.id = 'currency-selector-box';
+    // add the buttons to div
     box.innerHTML = `
         <button class="currency-selector-btn">aud</button>
         <button class="currency-selector-btn">usd</button>
@@ -9,41 +15,45 @@ function createCurrencySelector() {
         <button class="currency-selector-btn">jpy</button>
         <button class="currency-selector-btn">cad</button>
     `;
-    // Add click handler to each button
+    // add click handler for currency selector buttons
     box.querySelectorAll('.currency-selector-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
             const selectedCurrency = e.target.textContent;
-            // Update navbar
+            // update navbar
             const currencyToggle = document.getElementById('currency-toggle');
             if (currencyToggle) {
                 currencyToggle.textContent = '$' + selectedCurrency;
             }
-            // Store in localStorage
+            // store in localStorage
             localStorage.setItem('selectedCurrency', selectedCurrency);
-            // Optionally: dispatch event for other scripts
+            // dispatch currencyChanged event
             document.dispatchEvent(new CustomEvent('currencyChanged', { detail: { currency: selectedCurrency } }));
-            // Close selector
+            // close selector
             toggleCurrency();
             e.stopPropagation();
         });
     });
-    // Find the currency-toggle button and its parent li
+    // find the currency-toggle button and append the selector to it
     const currencyToggle = document.getElementById('currency-toggle');
     if (currencyToggle && currencyToggle.parentElement) {
+        // place div directly under selector button
         currencyToggle.parentElement.style.position = 'relative';
         currencyToggle.parentElement.appendChild(box);
     } else {
         document.body.appendChild(box); // fallback
     }
-    // Force reflow and add .show for transition
-    void box.offsetHeight; // force reflow
+    // force reflow and add .show for css transition
+    void box.offsetHeight;
     box.classList.add('show');
 }
 
+/*
+ * toggles currency selector (desktop mode)
+ */
 function toggleCurrency() {
     const existingBox = document.getElementById('currency-selector-box');
+    // if already open, close
     if (existingBox) {
-        // Animate out
         existingBox.classList.remove('show');
         existingBox.classList.add('hide');
         existingBox.addEventListener('transitionend', function handler(e) {
@@ -56,7 +66,10 @@ function toggleCurrency() {
         createCurrencySelector();
     }
 }
-// --- Currency conversion logic ---
+
+/*
+ * currency conversion enums
+ */
 const CURRENCY_CONVERSIONS = {
     AUD: 1,
     USD: 0.66,
@@ -65,7 +78,6 @@ const CURRENCY_CONVERSIONS = {
     JPY: 104,
     CAD: 0.90
 };
-
 const CURRENCY_SYMBOLS = {
     AUD: '$',
     USD: '$',
@@ -75,11 +87,19 @@ const CURRENCY_SYMBOLS = {
     CAD: '$'
 };
 
+/* 
+ * converts from aud to selected currency, hardcoded values
+ * because i cba setting up an api
+ */ 
 function convertPrice(audPrice, toCurrency) {
     const rate = CURRENCY_CONVERSIONS[toCurrency.toUpperCase()] || 1;
     return audPrice * rate;
 }
 
+/*
+ * formats price with correct symbol, truncates to 2 decimal places
+ * jpy is truncated to whole numbers
+ */
 function formatPrice(audPrice, toCurrency) {
     const symbol = CURRENCY_SYMBOLS[toCurrency.toUpperCase()] || '$';
     const converted = convertPrice(audPrice, toCurrency);
@@ -87,6 +107,10 @@ function formatPrice(audPrice, toCurrency) {
     return symbol + converted.toFixed(decimals);
 }
 
+/*
+ * updates all prices on page with correct currency.
+ * any html element with data-aud attribute will be updated.
+ */
 function updateAllPrices() {
     const currency = (localStorage.getItem('selectedCurrency') || 'AUD').toUpperCase();
     document.querySelectorAll('.price[data-aud]').forEach(el => {
@@ -94,11 +118,14 @@ function updateAllPrices() {
         el.textContent = formatPrice(aud, currency);
     });
 }
+
+// update prices on page load and when currency is changed
 document.addEventListener('DOMContentLoaded', updateAllPrices);
 document.addEventListener('currencyChanged', updateAllPrices);
 
-// Show/hide currency selector on navbar click
-// Also update navbar currency on page load
+/* 
+ * updates navbar currency on page load
+ */
 function updateNavbarCurrency() {
     const currencyToggle = document.getElementById('currency-toggle');
     const stored = localStorage.getItem('selectedCurrency') || 'AUD';
@@ -106,12 +133,12 @@ function updateNavbarCurrency() {
         currencyToggle.textContent = '$' + stored;
     }
 }
+
+// add listeners
 document.addEventListener('DOMContentLoaded', updateNavbarCurrency);
 document.addEventListener('click', function (e) {
     if (e.target && e.target.id === 'currency-toggle') {
         toggleCurrency();
     }
 });
-// Also update if currency is changed from another script
-// (optional, for extensibility)
 document.addEventListener('currencyChanged', updateNavbarCurrency);

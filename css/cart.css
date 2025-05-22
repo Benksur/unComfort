@@ -44,7 +44,7 @@
   margin: 48px 24px 0 24px;
   flex: 1 1 auto;
   overflow-y: auto;
-  max-height: calc(100vh - 72px); /* Adjust as needed for header/close btn */
+  max-height: calc(100vh - 72px); 
 }
 
 

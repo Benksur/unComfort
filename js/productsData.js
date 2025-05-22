@@ -139,5 +139,4 @@ window.products = [
         colours: ['black', 'blue', 'olive', 'beige'],
         sizes: ['XS','S', 'M', 'L', 'XL', 'XXL'],
     }
-
 ];

@@ -1,28 +1,27 @@
+// created by ty behnke - 47069374
+
+// product page main logic
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize product state
+    // initialize product state
     let productState = {
         size: null,
         color: null,
         quantity: 1
     };
-
     let currentColour;
-
-    // Function to initialize color box event listeners
+    // helper to initialize color box event listeners
     function colorBoxListener() {
         const colorBoxes = document.querySelectorAll('.color-box');
         colorBoxes.forEach(box => {
             box.addEventListener('click', function() {
-                // Remove active class from all color boxes
+                // remove active class from all color boxes
                 colorBoxes.forEach(b => b.classList.remove('active'));
-                // Add active class to the clicked box
+                // add active class to the clicked box
                 this.classList.add('active');
-                // Update both product state and currentColour
+                // update both product state and currentColour
                 productState.color = this.getAttribute('data-color');
                 currentColour = this.getAttribute('data-color');
-                console.log('Selected color:', productState.color);
-                
-                // Update the main product image
+                // update the main product image
                 const mainImage = document.querySelector('.product-card img:first-child');
                 if (mainImage) {
                     mainImage.src = `/unComfort/img/${product.code}_${currentColour}.jpg`;
@@ -30,8 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-
-    // Function to initialize size select event listener
+    // helper to initialize size select event listener
     function sizeSelectListener() {
         const sizeSelect = document.querySelector('.size-select');
         if (sizeSelect) {
@@ -41,12 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
-
-    // Function to initialize quantity buttons
+    // helper to initialize quantity buttons
     function quantityButtonsListener() {
         const addNumberButtons = document.querySelectorAll('.add-number-button');
         const addNumberInput = document.querySelector('.add-number-input');
-
+        // add click event to each button
         addNumberButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const action = this.textContent;
@@ -57,12 +54,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     productState.quantity = parseInt(addNumberInput.textContent) - 1;
                     addNumberInput.textContent = productState.quantity;
                 }
-                console.log('Selected quantity:', productState.quantity);
             });
         });
     }
-
-    // Function to get current product state
+    // helper to get current product state
     function getSelectedFeatures() {
         return {
             size: productState.size,
@@ -70,22 +65,24 @@ document.addEventListener('DOMContentLoaded', function() {
             quantity: productState.quantity
         };
     }
-
-    // Function to initialize add to cart button
+    // helper to initialize add to cart button
     function addToCartListener() {
         const addToCartButton = document.querySelector('.add-button');
         if (addToCartButton) {
             addToCartButton.addEventListener('click', function() {
+                // fetch selected product data
                 const selectedFeatures = getSelectedFeatures();
+                // if size not selected, alert user
                 if (!product.sizes.includes(selectedFeatures.size)) {
                     alert('Please select a size');
                     return;
                 }
+                // same for colour
                 if (!product.colours.includes(selectedFeatures.color)) {
-                    alert('Please select a color');
+                    alert('Please select a colour');
                     return;
                 }
-                
+                // add to cart
                 let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
                 cart.push({
                     productCode: product.code,
@@ -93,20 +90,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     price: product.price,
                     ...selectedFeatures
                 });
+                // save to local storage
                 localStorage.setItem('cartItems', JSON.stringify(cart));
+                // pop up current cart status to show something happened.
                 renderCartSidebar(cart);
             });
         }
     }
-
+    // get product code from url
     const urlParams = new URLSearchParams(window.location.search);
     const productCode = urlParams.get('code');
-
+    // find product
     const product = window.products.find(p => p.code === productCode);
     if (product) {
         currentColour = product.colours[0];
-
+        // create product section
         const productSection = document.getElementById('product');
+        // inject html
         productSection.innerHTML = `
             <div class="product-page-container">
                 <div class="product-information-container">
@@ -143,12 +143,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `;
-        
-        // Initialize all event listeners
+        // initialize all event listeners
         colorBoxListener();
         sizeSelectListener();
         quantityButtonsListener();
         addToCartListener();
+    // failsafe is user types in wrong url
     } else {
         const productSection = document.getElementById('product');
         productSection.innerHTML = '<p>Product not found</p>';
