@@ -118,11 +118,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="product-image-container">
                     <div class="product-card">
-                        <img src="../../img/${product.code}_${currentColour}.jpg" alt="${product.name}">
-                        <img src="../../img/${product.code}_1.jpg" alt="${product.name}">
-                        <img src="../../img/${product.code}_2.jpg" alt="${product.name}">
-                        <img src="../../img/${product.code}_3.jpg" alt="${product.name}">
-                        <img src="../../img/${product.code}_4.jpg" alt="${product.name}">
+                        <img src="../img/${product.code}_${currentColour}.jpg" alt="${product.name}">
+                        <img src="../img/${product.code}_1.jpg" alt="${product.name}">
+                        <img src="../img/${product.code}_2.jpg" alt="${product.name}">
+                        <img src="../img/${product.code}_3.jpg" alt="${product.name}">
+                        <img src="../img/${product.code}_4.jpg" alt="${product.name}">
                     </div>
                 </div>
                 <div class="product-add-container">
