@@ -1,3 +1,5 @@
+<!-- created by ty behnke - 47069374 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,17 +14,21 @@
 </head>
 <body>
     <div id="navbar-container"></div>
+
     <main>
         <h1 style="text-align: center; margin-top: 25vh;">LOGIN</h1>
         <form style="display: flex; flex-direction: column; align-items: center;">
+            <!-- credentials inputs have same styling -->
             <div class="credentials">
                 <input type="email" placeholder="email_" class="email">
                 <input type="password" placeholder="password_" class="password">
             </div>
+            <!-- login and sign up buttons -->
             <button type="submit" class="login-btn sign-in" onclick="login()">sign in</button>
             <button type="submit" class="login-btn sign-up" onclick="signUp()">sign up</button>
         </form>
     </main>
+    <!-- no footer here, page is fixed -->
     <script src="../js/components.js"></script>
     <script src="../js/cart.js"></script>
     <script src="../js/currency.js"></script>

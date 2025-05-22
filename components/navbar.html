@@ -1,11 +1,15 @@
+<!-- created by ty behnke - 47069374 -->
 <header>
     <nav class="transparent-nav">
+        <!-- hamburger button only rendered in tablet/mobile view -->
         <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu">
             <span></span><span></span><span></span>
         </button>
+        <!-- logo -->
         <div class="logo">
             <a href="/unComfort/"><span class="un">un</span><span class="comfort">comfort.</span></a>
         </div>
+        <!-- navigation links in desktop mode -->
         <ul class="nav-links">
             <li><a href="/unComfort/pages/shop.html">shop</a></li>
             <li><a href="/unComfort/pages/lookbook.html">lookbook</a></li>
@@ -13,6 +17,7 @@
             <li><a id="cart-toggle">cart</a></li>
             <li><a href="/unComfort/pages/login.html">login</a></li>
         </ul>
+        <!-- navigation overlay in tablet/mobile view -->
         <div class="nav-overlay" id="nav-overlay">
             <button class="nav-close" id="nav-close" aria-label="Close navigation menu">&times;</button>
             <ul class="nav-overlay-links">
@@ -23,6 +28,7 @@
                 <li><a href="/unComfort/pages/login.html">login</a></li>
             </ul>
         </div>
+        <!-- currency overlay renders over the nav overlay -->
         <div class="currency-overlay" id="currency-overlay" style="display: none;">
             <button class="currency-close" id="currency-close" aria-label="Close currency menu">&times;</button>
             <ul class="nav-overlay-links">

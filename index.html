@@ -1,3 +1,5 @@
+<!-- created by ty behnke - 47069374 -->
+<!-- landing page -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +14,7 @@
 </head>
 
 <body>
-    <!-- Full screen video background with overlay -->
+    <!-- full screen video background with overlay -->
     <div class="video-container">
         <video autoplay loop muted playsinline>
             <source src="/unComfort/img/yesh1.mp4" type="video/mp4">
@@ -20,7 +22,7 @@
         <div class="overlay"></div>
     </div>
 
-    <!-- https://www.youtube.com/watch?v=iLmBy-HKIAw -->
+    <!-- took inspiration for the scrolling banner from here https://www.youtube.com/watch?v=iLmBy-HKIAw -->
     <div class="scroller">
         <ul class="scroller-list">
             <li>FOLLOW @UNCOMFORT_ ON INSTAGRAM</li>
@@ -32,17 +34,18 @@
         </ul>
     </div>
 
-    <!-- Navbar component will be inserted here -->
+    <!-- navbar under scroller-->
     <div id="navbar-container"></div>
     
-    <!-- Cart Sidebar -->
+    <!-- cart sidebar -->
     <div id="cart-sidebar" class="cart-sidebar">
     </div>
 
     <main>
-        <!-- Hero Section with Video Background -->
+        <!-- empty container to ensure the video is full screen -->
         <section id="home" class="hero fullscreen">
             <div class="hero-content">
+                <!-- floating down arrow -->
                 <div class="down-arrow-3q">
                     <svg width="3vw" height="3vw" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M54.5624 41.6876C55.7014 42.8266 55.7014 44.6733 54.5624 45.8124L37.0624 63.3124C35.9234 64.4514 34.0766 64.4514 32.9376 63.3124L15.4376 45.8124C14.2986 44.6733 14.2986 42.8266 15.4376 41.6876C16.5766 40.5486 18.4234 40.5486 19.5624 41.6876L32.0833 54.2085L32.0833 8.74998C32.0833 7.13915 33.3892 5.83331 35 5.83331C36.6108 5.83331 37.9167 7.13915 37.9167 8.74998L37.9167 54.2085L50.4376 41.6876C51.5766 40.5486 53.4234 40.5486 54.5624 41.6876Z" fill="white"/>
@@ -52,7 +55,7 @@
         </section>
 
 
-        <!-- Featured Collection Section -->
+        <!-- featured collection section, js renders dynamically -->
         <section id="featured" class="featured-section">
             <div class="container">
                 <h2>featured collection</h2>
@@ -61,7 +64,7 @@
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- mission statement -->
         <section id="about" class="about-section">
             <div class="container">
                 <div class="about-content">
@@ -82,7 +85,7 @@
         </section>
 
         <div class="footer-divider"></div>
-        <!-- Video Showcase Section -->
+        <!-- video showcase section -->
         <section id="video-showcase" class="video-showcase-section">
             <div class="container">
                 <h2>watch the latest drop</h2>
@@ -96,6 +99,7 @@
             </div>
         </section>
 
+        <!-- render footer -->
         <footer>
             <div class="footer-divider"></div>
             <div class="newsletter-section">
@@ -132,7 +136,7 @@
             </div>
         </footer>
 
-        <!-- <script src="/unComfort/js/main.js"></script> -->
+        <!-- js scripts-->
         <script src="/unComfort/js/components.js"></script>
         <script src="/unComfort/js/featured-card.js"></script>
         <script src="/unComfort/js/cart.js"></script>

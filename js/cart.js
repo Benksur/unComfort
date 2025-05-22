@@ -1,12 +1,17 @@
+// created by ty behnke - 47069374
+
+/*
+ * creates and displays cart sidebar
+ */
 function createCartSidebar() {
+    // container
     const box = document.createElement('div');
     box.id = 'cart-sidebar-box';
-
-    // Close button
+    // close button
     const closeBtn = document.createElement('button');
     closeBtn.innerHTML = '&times;';
     closeBtn.className = 'cart-close-btn';
-    closeBtn.setAttribute('aria-label', 'Close cart sidebar');
+    // close button listener
     closeBtn.addEventListener('click', () => {
         box.classList.remove('show');
         box.classList.add('hide');
@@ -19,23 +24,25 @@ function createCartSidebar() {
     });
     box.appendChild(closeBtn);
 
-    // Content
+    // content area for cart items
     const content = document.createElement('div');
     content.className = 'cart-content';
     box.appendChild(content);
-
     document.body.appendChild(box);
-
-    // Always render the latest cart
+    
+    // load cart items from local storage
     const items = JSON.parse(localStorage.getItem('cartItems')) || [];
     renderCartSidebar(items);
 
-    // Force reflow and add .show for transition
+    // trigger reflow
     void box.offsetHeight;
     box.classList.add('show');
 }
 
 
+/*
+ * toggles cart sidebar
+ */
 function toggleCart() {
     const existingBox = document.getElementById('cart-sidebar-box');
     if (existingBox) {
