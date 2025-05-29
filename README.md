@@ -15,7 +15,13 @@ this page is a simple front end design built with html, css, and javascript. it 
 - lookbook
 - login
 - policies
-  
+
+## file structure
+- **components:** reusable html components that are imported by select pages. components include nav bar, side bars etc.
+- **css:** style sheets used by all static html files
+- **img:** all images stored here
+- **js:** javascript files
+- **pages:** static html files
 ---
 
 
